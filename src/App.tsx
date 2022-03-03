@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import Draggable from "react-draggable";
 import logo from "./logo.svg";
 import "./App.css";
 import Block from "./components/block";
-
+import Sidebar from "./components/SideBar/side_bar";
 function App() {
   const [content, setContent] = useState<string>("Drop Something here");
 
@@ -44,6 +43,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <Sidebar></Sidebar>
       <div className="container">
         <div
           className="box"
