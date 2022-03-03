@@ -1,8 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Draggable from "react-draggable";
+import logo from "./logo.svg";
+import "./App.css";
+import Block from "./components/block";
 
 function App() {
+  const [content, setContent] = useState<string>("Drop Something here");
+
+  // triggered when dragging
+  const dragStartHandler = (
+    event: React.DragEvent<HTMLDivElement>,
+    data: string
+  ) => {
+    event.dataTransfer.setData("text", data);
+  };
+
+  // triggered when dropping
+  const dropHandler = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const data = event.dataTransfer.getData("text");
+    setContent(data);
+  };
+
+  // droppable area
+  const allowDrop = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -10,6 +34,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <Block />
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -19,6 +44,18 @@ function App() {
           Learn React
         </a>
       </header>
+      <div className="container">
+        <div
+          className="box"
+          onDragStart={(event) => dragStartHandler(event, "This is a block")}
+          draggable={true}
+        >
+          <h2>This is a block</h2>
+        </div>
+        <div className="box" onDragOver={allowDrop} onDrop={dropHandler}>
+          <h2>{content}</h2>
+        </div>
+      </div>
     </div>
   );
 }
