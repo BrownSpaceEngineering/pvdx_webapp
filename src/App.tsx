@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Block from "./components/block";
+import Block from "./components/block/block";
 import Sidebar from "./components/SideBar/side_bar";
 function App() {
   const [content, setContent] = useState<string>("Drop Something here");
@@ -33,7 +33,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <Block />
+        <Block text="Test" />
         <a
           className="App-link"
           href="https://reactjs.org"
