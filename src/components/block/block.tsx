@@ -20,7 +20,9 @@ export default class Block extends React.Component<{ text: String }> {
                 {this.props.text}
               </text>
             </svg>
+          
           </div>
+        
         </Draggable>
       </div>
     );

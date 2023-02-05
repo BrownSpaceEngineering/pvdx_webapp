@@ -23,6 +23,7 @@ import { BiCog } from "react-icons/bi";
 
 import "react-pro-sidebar/dist/css/styles.css";
 import "./side_bar.css";
+import Block from "../block/block";
 
 const Header = () => {
   const [menuCollapse, setMenuCollapse] = useState(false);
@@ -55,12 +56,16 @@ const Header = () => {
               <MenuItem icon={<FaRegHeart />}>Favourite</MenuItem>
               <MenuItem icon={<RiPencilLine />}>Author</MenuItem>
               <MenuItem icon={<BiCog />}>Settings</MenuItem>
+              <MenuItem>Block</MenuItem>
             </Menu>
+            <Block text="hello"></Block>
+            <Block text="2"></Block>
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
               <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
             </Menu>
+            <Block text="2"></Block>
           </SidebarFooter>
         </ProSidebar>
       </div>
